@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-protocol StackNavigationFlow: ObservableObject {
+public protocol StackNavigationFlow: ObservableObject {
     
-    associatedtype StackNavigationIdentifier: Hashable
-    associatedtype SomeView: View
+    associatedtype StackIdentifier: Hashable
+    associatedtype SomeStackView: View
     
-    var path: [StackNavigationIdentifier] { get set }
+    var path: [StackIdentifier] { get set }
     
-    func pushToStack(_ identifier: StackNavigationIdentifier) -> SomeView
+    func pushToStack(_ identifier: StackIdentifier) -> SomeStackView
 }
