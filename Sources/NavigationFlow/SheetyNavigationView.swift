@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import ViewInspector
-
 
 public struct SheetyNavigationView<Content: View, SheetyNavigationViewModel: SheetyNavigationFlow>: View {
     
