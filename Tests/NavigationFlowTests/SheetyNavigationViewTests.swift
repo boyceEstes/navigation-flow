@@ -26,7 +26,7 @@ final class SheetyNavigationViewTests: XCTestCase {
         
         // when
         let viewModel = SheetyNavigationFlowSpy(modallyDisplayedView: .helloCruelWorld("any"))
-        let sheetyNavigationView = SheetyNavigationView(navigationModalViewModel: viewModel, content: anyView)
+        let sheetyNavigationView = SheetyNavigationView(sheetyNavigationViewModel: viewModel, content: anyView)
         
         // then
         XCTAssertNoThrow(try sheetyNavigationView.inspect().text().sheet())
@@ -40,7 +40,7 @@ final class SheetyNavigationViewTests: XCTestCase {
         
         // when
         let viewModel = SheetyNavigationFlowSpy()
-        let sheetyNavigationView = SheetyNavigationView(navigationModalViewModel: viewModel, content: anyView)
+        let sheetyNavigationView = SheetyNavigationView(sheetyNavigationViewModel: viewModel, content: anyView)
         
         // then
         XCTAssertThrowsError(try sheetyNavigationView.inspect().text().sheet())
@@ -55,7 +55,7 @@ final class SheetyNavigationViewTests: XCTestCase {
         
         // when
         let viewModel = SheetyNavigationFlowSpy(modallyDisplayedView: .helloCruelWorld(expectedSheetText))
-        let sheetyNavigationView = SheetyNavigationView(navigationModalViewModel: viewModel, content: anyView)
+        let sheetyNavigationView = SheetyNavigationView(sheetyNavigationViewModel: viewModel, content: anyView)
         
         // then
         let sheet = try sheetyNavigationView.inspect().text().sheet()
@@ -70,7 +70,7 @@ final class SheetyNavigationViewTests: XCTestCase {
         let textView = Text("Any")
         let expectedSheetText = "Hello Cruel World"
         let viewModel = SheetyNavigationFlowSpy(modallyDisplayedView: .goodbyeHappyEarth(expectedSheetText))
-        let sheetyNavigationView1 = SheetyNavigationView(navigationModalViewModel: viewModel, content: textView)
+        let sheetyNavigationView1 = SheetyNavigationView(sheetyNavigationViewModel: viewModel, content: textView)
 
         // then
         let sheet1 = try sheetyNavigationView1.inspect().text().sheet()

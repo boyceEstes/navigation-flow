@@ -37,7 +37,7 @@ class SheetyNavigationFlowSpy: SheetyNavigationFlow {
             case let .goodbyeHappyEarth(strDesc):
                 let viewModel = SheetyNavigationFlowSpy(modallyDisplayedView: .helloCruelWorld(strDesc))
                 
-                SheetyNavigationView(navigationModalViewModel: viewModel, content: Button(strDesc) { } )
+                SheetyNavigationView(sheetyNavigationViewModel: viewModel, content: Button(strDesc) { } )
             }
         }
     }
