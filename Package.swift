@@ -6,6 +6,7 @@ import PackageDescription
 let package = Package(
     name: "NavigationFlow",
     platforms: [
+        .iOS(.v16),
         .macOS(.v13)
     ],
     products: [
