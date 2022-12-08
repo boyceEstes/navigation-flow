@@ -12,7 +12,7 @@ import SwiftUI
 import NavigationFlow
 
 
-class StackNavigationFlowSpy: StackNavigationFlow {
+class StackNavigationFlowSpy: StackNavigationFlow, Dismissable {
     
     var path = [StackIdentifier]()
     

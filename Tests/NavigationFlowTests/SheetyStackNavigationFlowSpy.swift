@@ -1,16 +1,27 @@
 //
-//  SheetyNavigationFlowSpy.swift
+//  SheetyStackNavigationFlowSpy.swift
 //  
 //
-//  Created by Boyce Estes on 11/22/22.
+//  Created by Boyce Estes on 12/5/22.
 //
 
-import SwiftUI
+import Foundation
 import NavigationFlow
+import SwiftUI
 
-
-class SheetyNavigationFlowSpy: SheetyNavigationFlow {
-
+class SheetyStackNavigationFlowSpy: SheetyNavigationFlow, StackNavigationFlow, Dismissable {
+    
+    @Published var modallyDisplayedView: SheetyIdentifier?
+    var path = [StackIdentifier]()
+    
+    enum StackIdentifier: Identifiable {
+        
+        var id: UUID { UUID() }
+        
+        case helloCruelWorld
+    }
+    
+    
     enum SheetyIdentifier: Identifiable {
         
         var id: UUID { UUID() }
@@ -20,10 +31,8 @@ class SheetyNavigationFlowSpy: SheetyNavigationFlow {
     }
     
     
-    @Published var modallyDisplayedView: SheetyIdentifier?
-    
-    init(modallyDisplayedView: SheetyIdentifier? = nil) {
-        self.modallyDisplayedView = modallyDisplayedView
+    func pushToStack(_ identifier: StackIdentifier) -> some View {
+        return Text("Hello world")
     }
     
     

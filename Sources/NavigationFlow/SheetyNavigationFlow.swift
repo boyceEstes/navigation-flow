@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-public protocol SheetyNavigationFlow: ObservableObject {
+///
+/// Includes Dismissable protocol conformance, `dismiss()`-
+/// when it is called, the displayed view will be removed/dismissed
+///
+public protocol SheetyNavigationFlow: ObservableObject, Dismissable {
     
     associatedtype SheetyIdentifier: Identifiable
     associatedtype SomeSheetView: View
@@ -15,4 +19,12 @@ public protocol SheetyNavigationFlow: ObservableObject {
     var modallyDisplayedView: SheetyIdentifier? { get set }
     
     func displaySheet(for identifier: SheetyIdentifier) -> SomeSheetView
+}
+
+
+public extension Dismissable where Self: SheetyNavigationFlow {
+    
+    func dismiss() {
+        self.modallyDisplayedView = nil
+    }
 }
